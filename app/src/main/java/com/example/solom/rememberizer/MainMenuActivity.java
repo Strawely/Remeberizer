@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-//    okay
+//    okay...
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
