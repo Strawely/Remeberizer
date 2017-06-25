@@ -10,7 +10,7 @@ class ContentGenerator {
     private List<Integer> randomizedContent;
 
     ContentGenerator(int height, int width){
-        randomizedContent = genRndContent(height, width);
+        randomizedContent = genRndContent(height, width);//54
     }
 
     private List<Integer> genRndContent(int height, int width){
