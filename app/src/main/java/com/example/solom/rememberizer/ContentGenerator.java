@@ -30,6 +30,7 @@ class ContentGenerator {
             }
             j++;
         }
+
         for (int i = j; i < j+integers.length; i++) {
             try {
                 integers[i-j] = fields[i].getInt(drawable);

@@ -1,9 +1,9 @@
 package com.example.solom.rememberizer;
 
 import android.content.Context;
+import com.example.solom.rememberizer.CustomImageButton;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -15,15 +15,15 @@ public class GameField {
     private int width;
     private int height;
     private int leftCardsCount;
-    private ArrayList<CustomButton> openedBtns = new ArrayList<>();
-    private CustomButton[][] cards;
+    private ArrayList<CustomImageButton> openedBtns = new ArrayList<>();
+    private CustomImageButton[][] cards;
     private Context context;
 
     public GameField(int width, int height, Context context){
         this.width = width;
         this.height = height;
         leftCardsCount = width*height/2;
-        cards = new CustomButton[height][width];
+        cards = new CustomImageButton[height][width];
         this.context = context;
         ContentGenerator contentGenerator = new ContentGenerator(width,height);
         for (int i = 0; i < cards.length; i++) {
@@ -33,18 +33,18 @@ public class GameField {
         }
     }
 
-    private CustomButton InitializeButton(ContentGenerator contentGenerator){
+    private CustomImageButton InitializeButton(ContentGenerator contentGenerator){
 
         LinearLayout.LayoutParams layoutParams =
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutParams.weight = 1;
-        CustomButton button = new CustomButton(context);
+        CustomImageButton button = new CustomImageButton(context);
         button.setLayoutParams(layoutParams);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.getClass().equals(CustomButton.class)){
-                    CustomButton view = ((CustomButton) v);
+                if(v.getClass().equals(CustomImageButton.class)){
+                    CustomImageButton view = ((CustomImageButton) v);
                     if (!view.isShown()){
                         view.setShown();
                         onCardOpening(view);
@@ -59,7 +59,7 @@ public class GameField {
         return button;
     }
 
-    private boolean compareBtns(CustomButton btn1, CustomButton btn2){
+    private boolean compareBtns(CustomImageButton btn1, CustomImageButton btn2){
         return btn1.getContent() == btn2.getContent();
     }
 
@@ -71,7 +71,7 @@ public class GameField {
         Toast.makeText(context, "Gongrats!!", Toast.LENGTH_LONG);
     }
 
-    private void onCardOpening(CustomButton button){
+    private void onCardOpening(CustomImageButton button){
         if(openedBtns.size() == 2) {
             int size = openedBtns.size()-1;
             if (compareBtns(openedBtns.get(0), openedBtns.get(1))) {
