@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameplayActivity" />
-        <activity android:name=".NewGameActivity" />
+        <activity android:name=".NewGameMenuActivity"/>
         <!--<activity android:name=".CustomImageButton"></activity>-->
     </application>
 

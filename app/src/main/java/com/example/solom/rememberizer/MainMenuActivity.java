@@ -1,11 +1,11 @@
 package com.example.solom.rememberizer;
 
-import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -17,7 +17,8 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onBtnStartClick(View view) {
-        Intent intent = new Intent(this, NewGameActivity.class);
-        startActivity(intent);
+        DialogFragment dialog = new NewGameDialogFragment();
+        dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
+
     }
 }

@@ -3,6 +3,7 @@ package com.example.solom.rememberizer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -46,5 +47,8 @@ public class GameplayActivity extends AppCompatActivity {
         layoutParams.weight = 1;
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         linearLayout.setLayoutParams(layoutParams);
+    }
+
+    public void onCancelBtnClick(View view) {
     }
 }
