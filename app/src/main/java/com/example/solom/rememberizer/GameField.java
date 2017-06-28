@@ -9,14 +9,19 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 public class GameField implements Subject {
 
     private int leftCardsCount;
+
     private ArrayList<CustomImageButton> openedBtns = new ArrayList<>();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
+
     private CustomImageButton[][] cards;
     private Context context;
+
+    private Timer timer = new Timer();
 
     public GameField(int width, int height, Context context){
         leftCardsCount = width*height/2;
