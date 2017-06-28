@@ -9,7 +9,6 @@ import android.view.View;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-//    okay...
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +18,7 @@ public class MainMenuActivity extends AppCompatActivity {
     public void onBtnStartClick(View view) {
         DialogFragment dialog = new NewGameDialogFragment();
         dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
-
     }
+
+    //TODO ExitBtnClick
 }

@@ -1,6 +1,7 @@
 package com.example.solom.rememberizer;
 
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,20 +10,27 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-public class GameplayActivity extends AppCompatActivity {
+public class GameplayActivity extends AppCompatActivity implements Observer {
 
     private int width;
     private int height;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        width = intent.getIntExtra("width", 2);
-        height = intent.getIntExtra("height", 2);
-        setContentView(R.layout.activity_gameplay);
-        GameField gameField = new GameField(height, width, this);
-        showCards(gameField);
+        try {
+            super.onCreate(savedInstanceState);
+
+            Intent intent = getIntent();
+            width = intent.getIntExtra("width", 2);
+            height = intent.getIntExtra("height", 2);
+            setContentView(R.layout.activity_gameplay);
+            GameField gameField = new GameField(height, width, this);
+            gameField.registerObserver(this);
+            showCards(gameField);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void showCards(GameField gameField){
@@ -49,6 +57,9 @@ public class GameplayActivity extends AppCompatActivity {
         linearLayout.setLayoutParams(layoutParams);
     }
 
-    public void onCancelBtnClick(View view) {
+    @Override
+    public void update() {
+        DialogFragment dialogFragment = new WinnerDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(), "Congratulations!!!11!");
     }
 }
