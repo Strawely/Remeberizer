@@ -11,4 +11,8 @@ public class DifficultyNode extends Node {
     public void setRecords(ScoreList records) {
         this.records = records;
     }
+
+    public DifficultyNode(int fieldSize){
+        super(fieldSize);
+    }
 }

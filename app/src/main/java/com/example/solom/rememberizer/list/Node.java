@@ -20,4 +20,8 @@ public abstract class Node {
     public void setInfo(int info) {
         this.info = info;
     }
+
+    protected Node(int info){
+        this.info = info;
+    }
 }
