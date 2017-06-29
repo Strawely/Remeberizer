@@ -7,6 +7,10 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.example.solom.rememberizer.list.Node;
+import com.example.solom.rememberizer.list.ScoreList;
+import com.example.solom.rememberizer.list.ScoreNode;
+
 public class WinnerDialogFragment extends DialogFragment {
 
     @Override
@@ -15,7 +19,6 @@ public class WinnerDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_winner, null);
         builder.setView(view);
-
 
         return builder.create();
     }
